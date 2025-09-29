@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from .models import Patient
+from .models import Patient, Doctor, Appointment  # ✅ added
+
+def patient_dashboard(request):
+    patient = Patient.objects.get(user=request.user)
+    appointments = Appointment.objects.filter(patient=patient)
+    return render(request, "patient_dashboard.html", {"appointments": appointments})
 
 def patient_register(request):
     if request.method == "POST":
