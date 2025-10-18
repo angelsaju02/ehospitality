@@ -1,0 +1,113 @@
+{% load static %}
+{% get_static_prefix as f %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Welcome</title>
+    <style>
+        body {
+            background-image: url({{f}}img/dpp.jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Times New Roman', sans-serif;
+            background-color:aliceblue;
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        li a {
+            color: #ebeef0;
+            text-decoration: none;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .dropdown:hover .d1 {
+            display: block;
+        }
+
+        .d1 {
+            font-style: white;
+            display: none;
+            position: absolute;
+            background-color: #11044e;
+            width: 120px;
+        }
+ 
+        .d1.dropdown:hover.a{
+            background-color: aquamarine;
+        }
+
+        .h {
+            /* text-align: center; */
+            margin-left:300px;
+            margin-top: 100px;
+        }
+
+        h1 {
+            margin-left: 200px;
+            color: #970303;
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-top: 280px;
+            text-shadow: 5px 8px 5px black;
+
+        }
+
+        button {
+            background-color: #ebeef0;
+            /* text-align: center; */
+            color: white;
+            font-size:15px;
+            width: 200px;
+            height: 40px;
+            padding: 8px ;
+            margin: 8px 330px;
+            margin-top: 0;
+            
+        }
+        button:hover {
+            background-color: #170830;
+     
+        }
+        nav a:hover {
+            background-color: #690c2e;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="dropdown"><a href="#">SELECT</a>
+            <nav>
+            <div class="d1">
+                <a href="update_doctor">DOCTOR UPDATE</a>
+                <a href="view_doctor">VIEW DOCTOR</a>
+                <a href="log_out">LOGOUT</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div class="h">
+        <h1>Welcome {{drr.dr_user.first_name}} Doctor</h1>
+        <button><a href="dr_view_appo_for_patient">New Appointment</a></button>
+        <button><a href="accepted_appointment">Accepted Appointment</a></button>
+        <button><a href="rejected_appointment">Rejected Appointment</a></button>
+    </div> 
+</body>
+</html>

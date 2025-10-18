@@ -1,0 +1,61 @@
+{% load static %}
+{% get_static_prefix as a %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+</head>
+<style>
+    body{
+        background-image: url({{a}}img/abc.jpg);
+        background-size: cover;
+    }
+   
+    a{
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        display:inline-block; 
+       
+    }
+    h1{
+        font-family: 'Times New Roman', Times, serif;
+        font-style: italic;
+        padding: 10px;
+        margin-left: 50px;
+        color: rgb(5, 61, 61);
+        text-shadow: 5px 10px 10px black;
+        font-size: 50px;
+    }
+    button{
+        margin: 0;
+        padding: 0;
+        background-color:rgb(24, 7, 87); 
+        overflow: hidden;
+        justify-content: flex-end;
+        } 
+    button:hover {
+         background-color:#dd0760;
+        }
+    nav{
+        margin-left: 1100px;
+        }
+    
+        
+</style>
+
+<body>
+<center>
+    <nav>
+        <button><a href="admin/">ADMIN</a></button>
+        <button><a href="dr_login">DOCTOR</a></button>
+        <button><a href="patient_login">PATIENT</a></button>
+    </nav>
+    <div>
+        <h1>UNIVERSITY HOSPITAL</h1>    
+    </div>
+</center>
+</body>
+</html>

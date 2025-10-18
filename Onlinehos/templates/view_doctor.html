@@ -1,0 +1,88 @@
+{% load static %}
+{% get_static_prefix as h %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doctor_details</title>
+    <style>
+        body {
+            background-image: url({{h}}img/imgdo.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-shadow: 5px 5px 5px #333;
+            font-size: 40px;
+            /* margin-left: 500px; */
+            text-align: center;
+            color: #2eb3b3;
+        }
+
+        table {
+            margin: 20px auto; 
+            border-collapse: collapse;
+            /* width: 80%; */
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #16074d8e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        button:hover {
+            background-color: #5324aa;
+        }
+    </style>
+</head>
+<body>
+    <button><a href="dr_welcome">Back</a></button>
+    <h2>Doctor Details</h2>
+    <table border="1">
+        <tr>
+            <th>Doctor Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Qualification</th>
+            <th>Phone Number</th>
+        </tr>
+       
+        <tr>
+            <td>{{doc.dr_user.first_name}}</td> 
+            <td>{{doc.age}}</td>
+            <td>{{doc.dr_user.email}}</td>
+            <td>{{doc.qualification}}</td>
+            <td>{{doc.phone}}</td>
+        </tr>
+    </table>
+</body>
+</html>

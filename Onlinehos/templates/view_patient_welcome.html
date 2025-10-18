@@ -1,0 +1,92 @@
+{% load static %}
+{% get_static_prefix as l %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patient Welcome</title>
+</head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    body{
+        background-image: url({{l}}img/img12.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Times New Roman', Times, serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-shadow: 5px 5px 5px #333;
+            font-size: 30px;
+            /* margin-left: 500px; */
+            text-align: center;
+            color: #230855;
+            text-transform: uppercase;
+        }
+
+        table {
+            margin: 20px auto; 
+            border-collapse: collapse;
+            /* width: 80%; */
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #16074d8e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        button:hover {
+            background-color: #5324aa;
+        }
+    
+</style>
+<body>
+    <button><a href="patient_welcome">Back</a></button>
+    <center>
+        <h2>Patient Profile </h2>
+        <table border="1">
+            <tr>
+                <th>Patient Name</th>
+                <th>Age</th>              
+                <th>Phone Number</th>
+            </tr>
+            
+            <tr>
+                <td>{{pat.user.first_name}}</td> 
+                <td>{{pat.age}}</td>    
+                <td>{{pat.phone}}</td>
+            </tr>
+      
+        </table>
+    </center>
+</body>
+</html>
+

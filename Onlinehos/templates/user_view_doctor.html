@@ -1,0 +1,103 @@
+{% load static %}
+{% get_static_prefix as t %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>view</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        background-image: linear-gradient(to right,rgb(19, 7, 73),white,rgb(5, 14, 68),white);
+        /* background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #f8f9fa; */
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    form {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    select {
+        padding: 8px;
+    }
+    button {
+            background-color: #022a4b; 
+            color: rgb(245, 231, 231);
+            border: none;
+            padding: 10px ;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 0px;
+        }
+    a{
+        text-decoration: none;
+    }
+    .card{
+        margin: 20px;
+    }
+</style>
+
+<body>
+    <button><a href="patient_welcome">Back</a></button>
+    <div class="container">
+     
+        <form action="" method="post">
+            {% csrf_token %}
+            <select name='field'>
+                <option value="Please Select a Specialist">Choose the field:</option>
+                <option value="Ayurvedic">Ayurvedic</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="ENT">ENT</option>
+                <option value="Haematology">Haematology</option>
+                <option value="Nephrologist">Nephrologist</option>
+                <option value="Oncologist">Oncologist</option>
+                <option value="Radiologist">Radiologist</option>
+                <option value="Skin">Skin</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <div class="row">
+            {% for i in us %}
+                <div class="col-3">
+                    <div class="card" >
+                        <img src="{{i.image.url}}" height="150px" width="50px"  class="card-img" alt="{{i.image.url}}">
+                        <a href="{% url 'patient_welcome' %}">Back</a>
+                        <div class="card-body">
+                            <h3 class="card-title">{{i.dr_user.first_name}}</h3>
+                            <a href="{% url 'dr_view_choose_doctor' i.id %}">view</a>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+

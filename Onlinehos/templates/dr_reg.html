@@ -1,0 +1,148 @@
+{% load static %}
+{% get_static_prefix as c %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <style>
+    a{
+        text-decoration: none;
+    }
+    body{
+        background-image: url({{c}}img/img2.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+        overflow: hidden;
+        
+    }
+    
+    button {
+            background-color: #4a4869; 
+            color: white;
+            border: none;
+            /* padding: 5px; */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            
+        }
+
+        button a {
+            color: rgb(248, 234, 234);
+        }
+
+        /* center {
+            display: flex;
+            justify-content: center;
+        } */
+
+        form {
+          
+            background-color: rgba(167, 175, 201, 0.8); 
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px; 
+        
+        }
+    h2{
+        text-align:center ;
+        font-style: italic;
+        color: #3d3d5c;
+        text-shadow: 5px 10px 10px black;
+        font-size: 30px;
+        
+    }
+    input[type="submit"]{
+            margin-top: 10px;
+            margin-left:120px;
+            background-color:#595aac;
+        }
+    
+    input[type="submit"]:hover {
+            background-color:#7b7de4;
+        }
+    .container{
+      margin-left: 350px;
+    }
+</style>
+  <body>
+    <button><i class="fa-solid fa-backward"></i> <a href="dr_login">Back</a></button>
+      <div class="container">
+        
+        <form action="" method="post" enctype="multipart/form-data">
+          <h4>{{msg}}</h4>
+            {% csrf_token%}
+            <h2>DOCTOR REGISTRATION</h2>
+        <div class="row">
+            <div class="col-6">
+                <label for="">Doctor Name</label>
+                <input type="text" class='form-control' name='dname'>
+                <label for="">Age</label>
+                <input type="type"  class='form-control' name='age'>
+                <label for="">Email</label>
+                <input type="text" class='form-control'name='email'>
+                <label for="">User Name</label>
+                <input type="text" class='form-control'name='uname'>
+                <label for="">Qualification</label>
+                <input type="text" class='form-control'name='qualification'>
+                <label for="">Doctor ID</label>
+                <input type="text" class='form-control' name='drid'>
+                <label for="">Password</label>
+                <input type="password"  class='form-control' name='password'>
+                
+            </div>
+            <div class="col-6">
+            
+            <label for="">CPassword</label>
+            <input type="password"  class='form-control' name='cpassword'>
+            <label for="">Number of working Hospital</label>
+            <input type="text" class='form-control'name='nowh'>
+            <label for="">Specialist in</label>
+            <select name='drsp'  class='form-control'>
+                    <option value="Please Select a Specialist">Please Select a Specialist:</option>
+                    <option value="Ayurvedic">Ayurvedic</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="ENT">ENT</option>
+                    <option value="Haematology">Haematology</option>
+                    <option value="Nephrologist">Nephrologist</option>
+                    <option value="Oncologist">Oncologist</option>
+                    <option value="Radiologist">Radiologist</option>
+                    <option value="Skin">Skin</option></select>
+                 
+            <label for="">Phone Number</label>
+            <input type="number" class='form-control'name='phone'>
+            <label for="">Doctor certificate</label>
+            <input type="file" class='form-control'name='dcer'>
+            <label for="">Image</label>
+            <input type="file"  class='form-control'name='image'> 
+            <input type="submit"  value='ADD'>
+            <div style="text-align: center;">
+              <a href="dr_login">already have an account ! click here to <u>sign in</u></a>
+            </div>
+            </div>
+            
+        </div>
+        </form>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

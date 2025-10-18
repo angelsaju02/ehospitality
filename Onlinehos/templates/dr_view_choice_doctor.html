@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doctor views</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+<style>
+      body {
+            background-color: #f8f9fa;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+
+        .register {
+            background: -webkit-linear-gradient(left, #0d0344,white,rgb(8, 8, 41));
+            margin-top: 3%;
+            padding: 3%;
+            width: 40%;
+        }
+
+        .register-left {
+            text-align: center;
+            color: #fff;
+            margin-top: 4%;
+        }
+
+        .register-left input {
+            border: none;
+            border-radius: 1.5rem;
+            padding: 2%;
+            width: 30%;
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #960ba8;
+            margin-top: 20%;
+            margin-bottom: 3%;
+            cursor: pointer;
+        }
+
+        .register-right {
+            background: #cdcdd6;
+            border-radius:  20%;
+            /* padding: 10%; */
+        }
+
+        .register-left img {
+            margin-top: 15%;
+            margin-bottom: 5%;
+            width: 50%;
+            -webkit-animation: mover 2s infinite alternate;
+            animation: mover 1s infinite alternate;
+        }
+
+        @-webkit-keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        @keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        .register-left p {
+            font-weight: lighter;
+            padding: 12%;
+            margin-top: -9%;
+        }
+
+        .register .register-form {
+            padding: 10%;
+            margin-top: 10%;
+        }
+
+        .btnRegister {
+            float: right;
+            margin-top: 10%;
+            border: none;
+            border-radius: 1.5rem;
+            padding: 2%;
+            background: #174474;
+            color: #fff;
+            font-weight: 400;
+            width: 50%;
+            cursor: pointer;
+        }
+
+        .register .nav-tabs {
+            margin-top: 3%;
+            border: none;
+            background: #123152;
+            border-radius: 1.5rem;
+            width: 28%;
+            float: right;
+        }
+
+        .register .nav-tabs .nav-link {
+            padding: 2%;
+            height: 34px;
+            font-weight: 300;
+            color: #fff;
+            border-radius: 1.5rem;
+        }
+
+        .register .nav-tabs .nav-link:hover {
+            border: none;
+        }
+
+        .register .nav-tabs .nav-link.active {
+            width: 100px;
+            color: #0f253d;
+            border: 2px solid #0e2c4b;
+            border-radius: 1.5rem;
+        }
+
+        .register-heading {
+            text-align: center;
+            margin-top: 8%;
+            margin-bottom: -15%;
+            color: #e8ecf0;
+        }
+
+        .name {
+            color: #e8ecf0;
+        }
+       
+
+</style>
+</head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="" alt=""/>
+                        <h2>DOCTOR</h2>
+                        <p> All doctors treat, but a good doctor lets nature heal. </p>
+                    </div>
+                    
+                    <div class="col-md-6 register-right">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}  
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading" class="h">DETAILS</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-7">
+                                        <div class="form-group name" >
+                                            <h1>{{key.dr_user.first_name}}</h1>
+                                        </div>
+                                        <div class="form-group">
+                                           <img src="{{key.image.url}}" alt="" height="100px" width="100px">
+                                        </div>
+                                        <div class="form-group">
+                                        <h3>Field : {{key.drsp}}</h3>
+                                        </div>
+                                        <div class="form-group">
+                                            <h3>Email : {{key.dr_user.email}}</h3>
+                                            </div>
+                                     </div>
+                                    <div class="col-md-5">
+                                       <div class="form-group">
+                                        <label for="">Appointment Date</label>
+                                        <input type="date" name="date" class="date" placeholder="Enter quantity">
+                                       </div>
+                                        
+                                        <div class="form-group">
+                                           <p>{{b}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <p>{{c}}</p>
+                                         </div>
+                                       
+                                       
+
+                                        <input type="submit" class="btnRegister"  value="TAKE"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+
+            <!-- <label for="">Doctor Name</label>
+            <input type="text"name='dname'><br><br>
+            <label for="">Age</label>
+            <input type="type"name='age'><br><br>
+            <label for="">Doctor ID</label>
+            <input type="text"name='drid'><br><br>  
+            <label for="">Phone Number</label>
+            <input type="number"name='phone'><br><br>
+            <label for="">Image</label>
+            <input type="file"name='image'><br><br> 
+            <input type="submit"value=''><br><br>
+            
+     > -->
+</body>
+</html>   
+

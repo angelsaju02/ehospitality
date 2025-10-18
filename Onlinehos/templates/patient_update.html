@@ -1,0 +1,108 @@
+{% load static %}
+{% get_static_prefix as k %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient update</title>
+  </head>
+  <style>
+    
+        body{
+            background-image: url({{k}}img/img2.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-size: cover;
+            color: #1f1e1e;
+        }
+        button {
+            background-color: #1b0557;
+            color: rgb(221, 186, 186);
+            border: none;
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+
+            
+        }
+        form {
+            color: aliceblue;
+            background-color: rgba(9, 38, 71, 0.8);
+            padding: 30px 100px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            max-width: 100px;
+            width: 50%;
+            height: 10%;
+            
+        }
+        h2 {
+            text-align: center;
+            font-size: 30px;
+            color: #0d0674;
+            text-shadow:2px 8px 5px #1c0e2e;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 80%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+           
+        }
+
+        input[type="submit"] {
+            background-color: #08686e ;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color:#030447;
+        }
+
+        button a {
+            color: white;
+        }
+        
+        a{
+            text-decoration: none;
+        }
+</style>
+<body>
+  <button><a href="patient_login">Back</a></button>
+  <center>
+  <h2>PATIENT UPDATE</h2>
+  <div>
+      <form action="" method="post">
+          {% csrf_token%}
+          <label for="">Patient Name</label>
+          <input type="text"name='pname' value='{{pat.user.first_name}}'><br><br>
+          <label for="">Age</label>
+          <input type="text"name='age' value='{{pat.age}}'><br><br>
+          <label for="">Phone Number</label>
+          <input type="number"name='phone' value='{{pat.phone}}'><br><br>
+          <input type="submit"value='Register'><br><br>
+          
+      </form>
+      <h4>{{msg}}</h4>
+  </div>
+</center>
+</body>
+</html>

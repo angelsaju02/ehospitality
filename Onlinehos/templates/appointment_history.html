@@ -1,0 +1,88 @@
+{% load static %}
+{% get_static_prefix as f %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appoinment history</title>
+    <style>
+        body {
+            background-image: url({{f}}img/ooo.jpg);
+            font-family: 'Times New Roman', Times, serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        button a {
+            color: #141414;
+       
+        }
+         
+        tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        h2{
+            margin: 40px;
+            font-style: italic;
+            color: rgb(29, 34, 105);
+            text-shadow: 5px 10px 10px black;
+            font-size: 30px;
+        }
+        a{
+            text-decoration: none;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #231066;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0c2168;
+            color: aliceblue;
+        }
+
+        h2 {
+            text-align: center;
+        }
+</style>
+<body>
+    
+    <button><a href="patient_welcome">Back</a></button>
+    <center>
+        <h2>PATIENT APPOINMENTS</h2>
+        
+        <table border="1">
+           
+            <tr>
+                <th>Doctor Name</th>
+                <th>Field</th>              
+                <th>Phone Number</th>
+                <th>Date of Appoinment</th>
+                <th>Action</th>
+            </tr>
+            {% for i in app %}
+            <tr>
+                <td>{{i.doctor.dr_user.first_name}}</td> 
+                <td>{{i.doctor.drsp}}</td>    
+                <td>{{i.doctor.phone}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.approve}}</td>
+
+                
+            </tr>
+            {% endfor %}
+        </table>
+        
+    </center>
+</body>
+</html>

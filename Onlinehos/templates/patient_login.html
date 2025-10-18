@@ -1,0 +1,92 @@
+{% load static %}
+{% get_static_prefix as static_prefix %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login</title>
+    <style>
+        body {
+            background-image: url("{{ static_prefix }}img/abcd.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #023f35; 
+            color: #fff;
+    
+        }
+        input[type="submit"] {
+            background-color: #020963; 
+            color: #fff;
+    
+        }
+        a {
+            text-decoration: none;           
+        }
+
+        button {
+            background-color: #022a4b; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px;
+        }
+
+        button a {
+            color: white;
+        }
+
+        center {
+            display: flex;
+            justify-content: center;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8); 
+            margin-top: 80px;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label{
+            color: #004261;
+        }
+
+        h1 {
+            text-shadow: 10px 5px 10px black;
+            color: #004261; 
+        }
+    </style>
+</head>
+<body>
+    <button><a href="/">Back</a></button>
+    <center>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <h1>PATIENT LOGIN</h1><br><br>
+                <label>UserName</label>
+                <input type="text" name='uname'><br><br>
+                <label>Password</label>
+                <input type="password" name='password'><br><br>
+                <input type="submit" value='Login'><br><br> 
+                <a href="patient_reg">Don't have an account? Sign up here</a>
+            </form>
+        </div>
+    </center>
+</body>
+</html>
+</body>
+</html>

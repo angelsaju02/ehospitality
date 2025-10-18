@@ -1,0 +1,103 @@
+{% load static %}
+{% get_static_prefix as f %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dr view appo for patient</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-image: url({{f}}img/img11.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #052d47;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            
+        }
+
+        button a {
+            color: #fff;
+            text-decoration: none;
+        }
+        h2{
+            margin: 40px;
+            font-style: italic;
+            color: rgb(10, 18, 121);
+            text-shadow: 5px 10px 10px black;
+            font-size: 30px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #153a52;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #1a5c88;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: red;
+        }
+
+</style>
+<body>
+    <button><i class="fa-solid fa-backward"></i> <a href="dr_welcome">Back</a></button>
+    <center>
+        <h2>ALL PATIENT APPOINMENTS</h2>
+        
+        <table border="1">
+           
+            <tr>
+                <th>Patient Name</th>
+                <th>Age</th>              
+                <th>Phone Number</th>
+                <th>Date of Appoinment</th>
+            </tr>
+            {% for i in app %}
+            <tr>
+                <td>{{i.patient.user.first_name}}</td> 
+                <td>{{i.patient.age}}</td>    
+                <td>{{i.patient.phone}}</td>
+                <td>{{i.date}}</td>
+                <td><a href="{% url 'dr_view_one_appo_patient' i.id %}">view</a></td>
+                
+            </tr>
+      {% endfor %}
+        </table>
+        
+    </center>
+</body>
+</html>

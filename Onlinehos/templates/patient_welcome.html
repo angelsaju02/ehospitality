@@ -1,0 +1,104 @@
+{% load static %}
+{% get_static_prefix as h %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient welcome</title>
+    <style>
+        body {
+            background-image: url({{h}}img/abs.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        li a {
+            color: #280ca8;
+            text-decoration: none;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .dropdown:hover .d1 {
+            display: block;
+            
+        }
+
+        .d1 {
+            font-style: rgb(230, 212, 212);
+            display: none;
+            position: absolute;
+            background-color: #787391;
+            width: 120px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f0bb4;
+            text-transform: uppercase;
+            font-size: 35px;
+            text-shadow: 5px 8px 5px black;
+        }
+        button {
+            background-color: #ebeef0;
+            text-align: center;
+            color: white;
+            padding: 10px ;
+            margin: 10px ;
+            margin-top: 15px;
+            
+        }
+        button:hover {
+            background-color: #aa0e48;
+        }
+        nav a:hover {
+            background-color: #690c2e;
+        }
+        
+       
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="dropdown"><a href="#">SELECT</a>
+        <nav>
+            <div class="d1">
+                <a href="patient_update">PATIENT UPDATE</a>
+                <a href="view_patient">VIEW PATIENT</a>
+                <a href="log_outt">LOGOUT</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+    <!-- <button class="h"><a href="patient_login">Back</a></button> -->
+    <center>
+        <h1>welcome patient</h1>
+        <button><a href="{% url 'user_view_doctor' %}">View Doctors</a> </button>        
+        <!-- <button><a href="view_patient_profile">View Patient Profile</a></button> -->
+         
+        <button><a href="appointment_history">Appointment History</a></button>
+    
+        
+    </center>
+</body>
+</html>
+
